@@ -80,3 +80,29 @@ The next step beyond Delivery: every code change that passes automated tests is 
 Key idea:
 
 Fully automated code releases.
+
+Examples of CD
+1. Continuous Delivery: Staging release in GitHub Actions
+A SaaS team uses GitHub Actions so that whenever code is merged into the main branch:
+the application is built and tested
+a Docker image is created and pushed to a registry
+the new version is automatically deployed to a staging environment
+a human must press “Approve” to deploy to production
+This keeps the product always ready for release without automatically pushing to prod.
+
+2. Continuous Deployment: Auto-deploy to AWS using GitLab CI
+A backend service uses GitLab CI with Infrastructure-as-Code. Every successful pipeline run:
+builds the app
+runs tests
+updates the ECS/EKS cluster via Terraform
+rolls out the new version automatically
+No human approval is required—the service deploys to production continuously as long as tests pass.
+
+3. Continuous Deployment: Frontend auto-deploy to Vercel/Netlify
+A frontend React or Next.js app is connected to Vercel or Netlify.
+Whenever code is pushed or a PR is merged:
+the platform builds the app
+runs tests (if configured)
+deploys the new version globally to the CDN
+instantly invalidates and replaces cached assets
+Developers don’t run deployment commands at all; production updates happen automatically.
