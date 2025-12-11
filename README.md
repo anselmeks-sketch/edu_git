@@ -24,6 +24,35 @@ Running automated tests (unit, integration, etc.)
 Static analysis or linting
 
 If you want, I can also explain CD (Continuous Delivery / Deployment) or show how CI works in GitHub Actions, GitLab CI, Jenkins, etc.
+
+
+Examples of CI
+1. GitHub Actions running tests on every pull request
+A team using GitHub pushes code or opens a PR → GitHub Actions automatically:
+installs dependencies
+builds the project
+runs unit tests and linters
+reports failures back inside the PR
+This ensures nothing can be merged unless the CI pipeline passes.
+
+2. Jenkins automatically building and testing a Java backend
+A company using Jenkins configures it to:
+monitor the main branch
+trigger a build whenever new code arrives
+run Maven/Gradle tests
+generate test coverage reports
+publish artifacts for the next pipeline stage
+Developers get notified on Slack if the build fails.
+
+3. GitLab CI running integration tests in Docker
+A microservices team uses GitLab CI with a .gitlab-ci.yml file that:
+starts services in Docker containers (API, DB, cache)
+runs integration tests against those containers
+reports results to the merge request
+blocks merges if tests fail
+This guarantees that services work together before merging.
+
+
 # CD
 CD in CI/CD stands for either:
 
